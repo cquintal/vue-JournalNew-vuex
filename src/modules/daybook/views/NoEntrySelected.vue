@@ -4,7 +4,7 @@
     </div>
 
     <Fab
-     icon ="fa-plus"
+       @on:click="createNewEntry"
     />
 </template>
 
@@ -14,8 +14,14 @@ import { defineAsyncComponent } from 'vue'
     export default {
         components: {
             Fab: defineAsyncComponent( () => import('../components/Fab.vue'))
-        }
+        },
+        methods: {
+
+            createNewEntry(){
+                this.$router.push({ name: 'entry', params: { id: 'new'}})
+            }
     }
+}
 </script>
 
 <style lang="scss" scoped>
